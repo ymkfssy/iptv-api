@@ -5,26 +5,22 @@
 
 📺IPTV直播源自动更新平台，『🤖全自动采集、筛选、测速、生成流程🚀』，支持丰富的个性化配置，将结果地址输入播放器即可观看
 
+## 项目来源
+本项目Fork自[Guovin/iptv-api](https://github.com/Guovin/iptv-api)，基于原项目进行二次开发与优化。
+
 <p align="center">
   <br>
-  <a href="https://trendshift.io/repositories/12327" target="_blank"><img src="https://trendshift.io/api/badge/repositories/12327" alt="Guovin%2Fiptv-api | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Guovin/iptv-api/releases/latest">
-    <img src="https://img.shields.io/github/v/release/guovin/iptv-api?label=Version" />
+  <a href="https://github.com/[your-username]/iptv-api/releases/latest">
+    <img src="https://img.shields.io/github/v/release/[your-username]/iptv-api?label=Version" />
   </a>
   <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/python-3.13-47c219?label=Python" />
   </a>
-  <a href="https://github.com/Guovin/iptv-api/releases/latest">
-    <img src="https://img.shields.io/github/downloads/guovin/iptv-api/total?label=GUI%20Downloads" />
-  </a>
-  <a href="https://hub.docker.com/repository/docker/guovern/iptv-api">
-    <img src="https://img.shields.io/docker/pulls/guovern/iptv-api?label=Docker%20Pulls" />
-  </a>
-  <a href="https://github.com/Guovin/iptv-api/fork">
-    <img src="https://img.shields.io/github/forks/guovin/iptv-api?label=Forks" />
+  <a href="https://hub.docker.com/repository/docker/[your-docker-username]/iptv-api">
+    <img src="https://img.shields.io/docker/pulls/[your-docker-username]/iptv-api?label=Docker%20Pulls" />
   </a>
 </p>
 
@@ -34,9 +30,7 @@
 
 </div>
 
-🎉💻 [IPTV-Web](https://github.com/Guovin/iptv-web)：IPTV电视直播源管理平台，支持在线播放等功能，开发中...
 
-💖 [频道别名收集计划](https://github.com/Guovin/iptv-api/discussions/1082)
 
 - [✅ 核心特性](#核心特性)
 - [🔗 最新结果](#最新结果)
@@ -49,10 +43,7 @@
     - [Docker](#Docker)
 - [📖 详细教程](./docs/tutorial.md)
 - [🗓️ 更新日志](./CHANGELOG.md)
-- [👀 关注](#关注)
-- [⭐️ Star统计](#Star统计)
-- [❤️ 捐赠](#捐赠)
-- [📣 免责声明](#免责声明)
+- [ 免责声明](#免责声明)
 - [⚖️ 许可证](#许可证)
 
 > [!IMPORTANT]
@@ -104,25 +95,25 @@
 - 默认
 
 ```bash
-https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u
+h ttps://raw.githubusercontent.com/[your-username]/iptv-api/gd/output/result.m3u
 ```
 
 - IPv6
 
 ```bash
-https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/ipv6/result.m3u
+h ttps://raw.githubusercontent.com/[your-username]/iptv-api/gd/output/ipv6/result.m3u
 ```
 
 - IPv4
 
 ```bash
-https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/ipv4/result.m3u
+h ttps://raw.githubusercontent.com/[your-username]/iptv-api/gd/output/ipv4/result.m3u
 ```
 
 ### 点播源
 
 ```bash
-https://raw.githubusercontent.com/Guovin/iptv-api/gd/source.json
+h ttps://raw.githubusercontent.com/[your-username]/iptv-api/gd/source.json
 ```
 
 ## 配置
@@ -197,6 +188,10 @@ https://raw.githubusercontent.com/Guovin/iptv-api/gd/source.json
 | update_interval        | 定时执行更新时间间隔，单位小时，设置0或空则只运行一次，不作用于工作流                                                                                                                                   | 12                |
 | update_time_position   | 更新时间显示位置，需要开启 open_update_time 才能生效，可选值：top、bottom，top:显示于结果顶部，bottom: 显示于结果底部                                                                                        | top               |
 
+## 项目来源
+
+本项目Fork自[Guovin/iptv-api](https://github.com/Guovin/iptv-api)，基于原项目进行二次开发与优化。
+
 ## 快速上手
 
 ### 配置与结果目录
@@ -257,9 +252,7 @@ pipenv run service
 
 ### GUI 软件
 
-1. 下载[IPTV-API 更新软件](https://github.com/Guovin/iptv-api/releases)，打开软件，点击启动，即可进行更新
-
-2. 或者在项目目录下运行以下命令，即可打开 GUI 软件：
+1. 在项目目录下运行以下命令，即可打开 GUI 软件：
 
 ```shell
 pipenv run ui
@@ -370,6 +363,9 @@ docker run -d -p 8000:8000 guovern/iptv-api
 4. 配置构建设置：
    - 框架预设：无
    - 构建命令：`export LANG=en_US.UTF-8 && pip install --upgrade pip && pip install pipenv && pipenv --python 3.13 && pipenv install && pipenv run dev`
+
+> [!TIP]
+> Cloudflare Pages构建环境已预装Python 3.13，如果您的环境支持Python 3.14，也可以使用`pipenv --python 3.14`命令。
    - 构建输出目录：output
 
 #### 2. 设置GitHub Actions Secrets
@@ -431,84 +427,10 @@ https://your-project.pages.dev/txt
 
 [更新日志](./CHANGELOG.md)
 
-## 关注
-
-### Github
-
-关注我的Github账号[Guovin](https://github.com/Guovin)，获取更多实用项目
-
-### 微信公众号
-
-微信公众号搜索 Govin，或扫码，接收更新推送、学习更多使用技巧：
-
-![微信公众号](./static/images/qrcode.jpg)
-
-## Star统计
-
-[![Star统计](https://starchart.cc/Guovin/iptv-api.svg?variant=adaptive)](https://starchart.cc/Guovin/iptv-api)
-
-## 捐赠
-
-<div>开发维护不易，请我喝杯咖啡☕️吧~</div>
-
-| 支付宝                                  | 微信                                      |
-|--------------------------------------|-----------------------------------------|
-| ![支付宝扫码](./static/images/alipay.jpg) | ![微信扫码](./static/images/appreciate.jpg) |
-
-### ❤️ 捐赠名单
-
-衷心感谢每一位捐赠者！您的慷慨帮助我们改进和完善项目，感谢您的支持！❤️
-
-| 名称            | 来源  | 留言            | 金额   |
-|:--------------|:----|:--------------|:-----|
-| Fernando 杨    | 公众号 |               | 100  |
-| Chief         | 赞赏码 |               | 66   |
-| 陈启跃           | 赞赏码 | 继续加油，已关注      | 50   |
-| 中国人（陈特光）      | 公众号 |               | 50   |
-| James Zong    | 赞赏码 |               | 50   |
-| Peike         | 赞赏码 |               | 50   |
-| 孟敬人           | 赞赏码 |               | 50   |
-| **彬           | 支付宝 |               | 30   |
-| 戒烟            | 公众号 | 大佬辛苦了         | 25   |
-| 搂着猫的老鼠        | 公众号 | 受教了，非常感谢您的付出  | 25   |
-| 米多            | 赞赏码 | 非常强大，加油       | 20   |
-| pakysr        | 赞赏码 |               | 20   |
-| 随波            | 公众号 |               | 20   |
-| 公子            | 公众号 |               | 20   |
-| 迎着风雨成长        | 公众号 |               | 20   |
-| 丨说好的幸福呢       | 公众号 |               | 20   |
-| 大胖雷蒙德         | 公众号 | 加油！           | 20   |
-| 科技=未来～随心所欲=幸福 | 公众号 |               | 20   |
-| 钦             | 公众号 | 谢谢你           | 20   |
-| 王炫茗           | 赞赏码 |               | 20   |
-| *会            | 支付宝 |               | 20   |
-| 草草不恭先生        | 赞赏码 | 简直就是造福人民的项目   | 10   |
-| dysenan       | 赞赏码 |               | 10   |
-| zzj           | 赞赏码 |               | 10   |
-| 彪             | 赞赏码 |               | 10   |
-| 李老师（杠爷）       | 公众号 |               | 10   |
-| 威记            | 公众号 |               | 10   |
-| zxx           | 公众号 |               | 10   |
-| *洁            | 支付宝 |               | 10   |
-| *胜            | 支付宝 |               | 10   |
-| **翔           | 支付宝 |               | 10   |
-| *宇            | 支付宝 |               | 10   |
-| **欣           | 支付宝 |               | 10   |
-| **高           | 支付宝 |               | 10   |
-| **胜           | 支付宝 |               | 10   |
-| 烊             | 公众号 |               | 8.88 |
-| 阿雨辰           | 赞赏码 | 虽然没看懂，但觉得挺牛逼的 | 6.66 |
-| 骑着蜗牛追火箭       | 公众号 | 大佬威武！！！！！     | 5    |
-| 大胖雷蒙德         | 公众号 | 加油。           | 5    |
-| 韶梦年华          | 公众号 |               | 5    |
-| BlueSymphony  | 公众号 |               | 5    |
-| 青山碧水间         | 公众号 |               | 5    |
-| **勇           | 支付宝 |               | 5    |
-
 ## 免责声明
 
 本项目仅供学习交流用途，接口数据均来源于网络，如有侵权，请联系删除
 
 ## 许可证
 
-[MIT](./LICENSE) License &copy; 2024-PRESENT [Govin](https://github.com/guovin)
+[MIT](./LICENSE) License &copy; 2024-PRESENT
