@@ -355,12 +355,21 @@ docker run -d -p 8000:8000 guovern/iptv-api
 
 #### 1. 配置Cloudflare Pages项目
 
+**方法一：使用GitHub Actions自动部署（推荐）**
+
+项目已配置GitHub Actions工作流（`.github/workflows/cloudflare-pages.yml`），自动执行以下流程：
+1. 安装Python和FFmpeg依赖
+2. 运行更新脚本生成直播源数据
+3. 部署到Cloudflare Pages
+
+**方法二：手动配置Cloudflare Pages**
+
 1. 登录[Cloudflare控制台](https://dash.cloudflare.com/)
 2. 进入Pages页面，点击"创建项目"，选择"连接到Git"
 3. 选择您fork的IPTV-API仓库
 4. 配置构建设置：
    - 框架预设：无
-   - 构建命令：无需手动设置，项目已配置GitHub Actions自动部署
+   - 构建命令：`pip install pipenv && pipenv --python 3.14 && pipenv install && pipenv run dev`
    - 构建输出目录：output
 
 #### 2. 设置GitHub Actions Secrets
