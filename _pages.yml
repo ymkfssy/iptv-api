@@ -1,0 +1,46 @@
+# Cloudflare Pages 配置文件
+
+# 构建配置
+builds:
+  - name: iptv-api-static
+    publish: output
+    command: npm run build  # 这个命令会在部署时执行，用于生成静态资源
+
+# 路由规则
+routes:
+  - src: /
+    dest: /result.m3u
+  - src: /txt
+    dest: /result.txt
+  - src: /ipv4
+    dest: /ipv4/result.m3u
+  - src: /ipv4/txt
+    dest: /ipv4/result.txt
+  - src: /ipv6
+    dest: /ipv6/result.m3u
+  - src: /ipv6/txt
+    dest: /ipv6/result.txt
+  - src: /m3u
+    dest: /result.m3u
+  - src: /epg/epg.xml
+    dest: /epg/epg.xml
+  - src: /epg/epg.gz
+    dest: /epg/epg.gz
+  - src: /log/result
+    dest: /log/result.log
+  - src: /log/speed-test
+    dest: /log/speed_test.log
+  - src: /log/statistic
+    dest: /log/statistic.log
+  - src: /log/nomatch
+    dest: /log/nomatch.log
+
+# 重写规则
+rewrites:
+  - source: /*
+    destination: /index.html
+
+# 环境变量
+env:
+  - key: NODE_VERSION
+    value: 18
