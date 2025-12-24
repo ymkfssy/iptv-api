@@ -369,7 +369,7 @@ docker run -d -p 8000:8000 guovern/iptv-api
 3. 选择您fork的IPTV-API仓库
 4. 配置构建设置：
    - 框架预设：无
-   - 构建命令：`pip install pipenv && pipenv --python 3.14 && pipenv install && pipenv run dev`
+   - 构建命令：`export LANG=en_US.UTF-8 && pip install --upgrade pip && pip install pipenv && pipenv --python 3.13 && pipenv install && pipenv run dev`
    - 构建输出目录：output
 
 #### 2. 设置GitHub Actions Secrets

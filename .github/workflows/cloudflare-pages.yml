@@ -20,17 +20,17 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.14'
           cache: 'pipenv'
 
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Install pipenv
-        run: pip install --user pipenv
+        run: export LANG=en_US.UTF-8 && pip install --upgrade pip && pip install --user pipenv
 
       - name: Install dependencies
-        run: pipenv --python 3.13 && pipenv install --deploy
+        run: pipenv --python 3.14 && pipenv install --deploy
 
       - name: Run update script
         run: pipenv run dev
