@@ -32,8 +32,8 @@ jobs:
       - name: Install dependencies
         run: pipenv --python 3.13 && pipenv install --deploy
 
-      - name: Run update script
-        run: pipenv run dev
+      - name: Run update script with optimized config for Cloudflare
+        run: cp .github/cloudflare_config.ini config/config.ini && pipenv run dev
 
       - name: Install Cloudflare Wrangler
         run: npm install -g wrangler@latest
