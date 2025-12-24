@@ -351,6 +351,71 @@ docker run -d -p 8000:8000 guovern/iptv-api
 | /live/ipv6/m3u | 推流live ipv6 m3u接口 |
 | /hls/ipv6/m3u  | 推流hls ipv6 m3u接口  |
 
+### Cloudflare Pages
+
+#### 1. 配置Cloudflare Pages项目
+
+1. 登录[Cloudflare控制台](https://dash.cloudflare.com/)
+2. 进入Pages页面，点击"创建项目"，选择"连接到Git"
+3. 选择您fork的IPTV-API仓库
+4. 配置构建设置：
+   - 框架预设：无
+   - 构建命令：无需手动设置，项目已配置GitHub Actions自动部署
+   - 构建输出目录：output
+
+#### 2. 设置GitHub Actions Secrets
+
+1. 进入您fork的仓库，点击"Settings" -> "Secrets and variables" -> "Actions"
+2. 添加以下Secrets：
+   - `CLOUDFLARE_API_TOKEN`：Cloudflare API令牌（需要Pages编辑权限）
+   - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare账户ID（可在Cloudflare控制台获取）
+
+#### 3. 部署流程
+
+1. 推送代码到master或gd分支，GitHub Actions将自动触发部署
+2. 部署流程包括：
+   - 安装依赖
+   - 运行更新脚本
+   - 部署到Cloudflare Pages
+
+#### 4. 访问部署后的URL
+
+部署完成后，您可以通过以下URL访问直播源：
+
+```bash
+# 默认
+https://your-project.pages.dev/result.m3u
+
+# IPv4
+https://your-project.pages.dev/ipv4/result.m3u
+
+# IPv6
+https://your-project.pages.dev/ipv6/result.m3u
+
+# TXT格式
+https://your-project.pages.dev/txt
+```
+
+#### 5. 路由规则
+
+项目已配置以下路由规则（位于`_pages.yml`文件）：
+
+| 路径               | 目标文件                  |
+|:-----------------|:-----------------------|
+| /                | /result.m3u            |
+| /txt             | /result.txt            |
+| /ipv4            | /ipv4/result.m3u       |
+| /ipv4/txt        | /ipv4/result.txt       |
+| /ipv6            | /ipv6/result.m3u       |
+| /ipv6/txt        | /ipv6/result.txt       |
+| /m3u             | /result.m3u            |
+| /epg/epg.xml     | /epg/epg.xml           |
+| /epg/epg.gz      | /epg/epg.gz            |
+| /log/result      | /log/result.log        |
+| /log/speed-test  | /log/speed_test.log    |
+| /log/statistic   | /log/statistic.log     |
+| /log/nomatch     | /log/nomatch.log       |
+
 ## 更新日志
 
 [更新日志](./CHANGELOG.md)
