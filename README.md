@@ -365,8 +365,10 @@ docker run -d -p 8000:8000 guovern/iptv-api
 
 #### 2. 设置GitHub Actions Secrets
 
-1. 进入您fork的仓库，点击"Settings" -> "Secrets and variables" -> "Actions"
-2. 添加以下Secrets：
+1. 进入您fork的仓库，点击顶部的"Settings"选项卡
+2. 在左侧菜单中，展开"Security"部分
+3. 点击"Secrets and variables" -> "Actions"
+4. 添加以下Secrets：
    - `CLOUDFLARE_API_TOKEN`：Cloudflare API令牌（需要Pages编辑权限）
    - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare账户ID（可在Cloudflare控制台获取）
 
